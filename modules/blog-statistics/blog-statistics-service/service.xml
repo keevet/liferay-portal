@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="com.liferay.training.blog.statistics">
+	<namespace>BlogStats</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+	<entity local-service="true" name="BlogStatistic" remote-service="false" uuid="false">
+
+		<!-- PK fields -->
+
+		<column name="blogStatisticId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<!--column name="userId" type="long" /-->
+		<!--column name="userName" type="String" /-->
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="blogsEntryId" type="long"/>
+		<!--column name="field1" type="String" /-->
+		<column name="viewCount" type="long"/>
+
+		<!-- Order -->
+
+		<order by="desc">
+			<order-column name="viewCount" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="BlogsEntryId" return-type="BlogStatistic" unique="true">
+			<finder-column name="blogsEntryId" />
+		</finder>
+
+		<finder name="CompanyId" return-type="Collection">
+			<finder-column name="companyId" />
+		</finder>
+
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+
+
+		<finder name="C_GtViewCount" return-type="Collection">
+			<finder-column name="companyId" />
+			<finder-column comparator="&gt;" name="viewCount" />
+		</finder>
+	</entity>
+</service-builder>

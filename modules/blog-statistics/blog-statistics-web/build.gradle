@@ -1,0 +1,5 @@
+dependencies {
+	compileOnly group: "com.liferay", name: "com.liferay.blogs.api"
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+	compileOnly project(":modules:blog-statistics:blog-statistics-api")
+}

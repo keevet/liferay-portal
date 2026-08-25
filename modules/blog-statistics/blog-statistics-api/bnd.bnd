@@ -1,0 +1,10 @@
+Bundle-Name: blog-statistics-api
+Bundle-SymbolicName: com.liferay.training.blog.statistics.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.training.blog.statistics.exception,\
+	com.liferay.training.blog.statistics.model,\
+	com.liferay.training.blog.statistics.service,\
+	com.liferay.training.blog.statistics.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../blog-statistics-service/service.xml
